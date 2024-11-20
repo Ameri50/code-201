@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  nav {
+    background: linear-gradient(45deg, #1bce89, #001482);
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  nav > ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav > ul > li > a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  /* 600px en adelante */
+  @media (min-width: 600px) {
+    body {
+      background-color: red;
+    }
+  
+    nav {
+      top: 0;
+      bottom: auto;
+    }
+  }
