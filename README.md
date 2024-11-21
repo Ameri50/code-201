@@ -17,6 +17,11 @@
 
 El archivo `.eslintrc.json` contiene configuraciones para **ESLint**, una herramienta que ayuda a mantener un código limpio y sin errores en proyectos JavaScript.  
 
+## Despliegue
+
+- [https://github.com/Ameri50/web-moderna]
+- [https://ameri50.github.io/web-moderna/]
+
 ### Configuración
 
 ```json
@@ -35,8 +40,3 @@ El archivo `.eslintrc.json` contiene configuraciones para **ESLint**, una herram
     "quotes": ["error", "double"]
   }
 }
-
-##### Despliegue
-
-- [https://ameri50.github.io/web-moderna/]
-- [https://github.com/Ameri50/web-moderna] 
