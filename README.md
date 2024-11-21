@@ -27,16 +27,20 @@ El archivo `.eslintrc.json` contiene configuraciones para **ESLint**, una herram
 ```json
 {
   "env": {
-    "browser": true,
-    "es2021": true
+    "browser": true, // Habilita las variables globales del navegador (window, document, etc.)
+    "es2021": true   // Permite usar características modernas de ECMAScript 2021.
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended"], // Usa las reglas recomendadas por ESLint como base.
   "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": "latest", // Habilita la sintaxis más reciente de ECMAScript.
+    "sourceType": "module"   // Permite el uso de módulos ES6 (import/export).
   },
   "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"]
+    "indent": ["error", 2],           // Obliga a usar una indentación de 2 espacios.
+    "linebreak-style": ["error", "unix"], // Requiere saltos de línea en formato Unix (\n).
+    "quotes": ["error", "single"],   // Obliga a usar comillas simples para cadenas.
+    "semi": ["error", "always"],     // Requiere punto y coma al final de cada declaración.
+    "no-unused-vars": "warn",        // Genera advertencia si hay variables no usadas.
+    "no-console": "warn"             // Genera advertencia si se usa console.log (útil en producción).
   }
 }
