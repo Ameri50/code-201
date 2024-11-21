@@ -1,10 +1,11 @@
-/* Estilo general */
+/* Fondo general con imagen */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Fondo degradado */
-  color: #333;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO9gD0ebBuwy3luKEcbs1YOAPbZ7INBu0I1g&s') no-repeat center center fixed; /* Imagen de fondo */
+  background-size: cover; /* Escalar para cubrir toda la pantalla */
+  color: #fff; /* Cambiar el color del texto para mayor contraste */
   line-height: 1.6;
 }
 
@@ -14,9 +15,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #2c3e50; /* Fondo oscuro */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo translúcido */
   color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para mayor efecto */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav .logo {
@@ -41,30 +42,44 @@ nav .menu a:hover {
 
 /* Hero section */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 100px 20px;
-  background: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
-  border-radius: 15px;
   margin: 50px auto;
-  max-width: 800px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para mayor contraste */
+  max-width: 1000px;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo translúcido oscuro */
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero h1 {
   font-size: 3rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #555;
+  margin-bottom: 20px;
 }
 
 .hero .btn {
   text-decoration: none;
-  background-color: #3498db;
+  background-color: #ff719a;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -72,24 +87,20 @@ nav .menu a:hover {
 }
 
 .hero .btn:hover {
-  background-color: #2980b9;
+  background-color: #ff4d6d;
 }
 
 /* Estilo responsivo */
 @media (max-width: 768px) {
-  nav .logo {
-    font-size: 1.2rem;
-  }
-
-  nav .menu a {
-    font-size: 0.9rem;
-  }
-
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .hero-text {
+    padding: 10px;
   }
 }
