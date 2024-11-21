@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Experiencia en Tecsup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f8fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      color: white;
+      text-align: center;
+      padding: 2em 0;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      margin: 20px auto;
+      max-width: 1200px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      color: #4b6cb7;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    ul li::before {
+      content: "✔";
+      color: #4b6cb7;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    a {
+      color: #4b6cb7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #182848;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4b6cb7;
+      outline: none;
+    }
+
+    button {
+      background-color: #4b6cb7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #182848;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        margin: 10px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mi Experiencia en Tecsup</h1>
+    <p>Un recorrido por mi formación y proyectos de desarrollo web.</p>
+  </header>
+
+  <section>
+    <h2>Introducción</h2>
+    <p>Hola, soy Josue Rojas, estudiante de Tecsup apasionado por el desarrollo web. En estos 5 ciclos he aprendido tecnologías clave como HTML, CSS, JavaScript, Node.js y Express, y he trabajado en proyectos que aplican estas herramientas.</p>
+  </section>
+
+  <section>
+    <h2>Mi Trayectoria</h2>
+    <div class="cycle">
+      <h3>1º Ciclo</h3>
+      <ul>
+        <li>Introducción al desarrollo web: HTML y CSS básico.</li>
+        <li>Primer proyecto: Página personal "About Me".</li>
+      </ul>
+    </div>
+    <div class="cycle">
+      <h3>2º Ciclo</h3>
+      <ul>
+        <li>JavaScript: Manipulación del DOM y eventos.</li>
+        <li>Proyecto destacado: Calculadora interactiva.</li>
+      </ul>
+    </div>
+    <div class="cycle">
+      <h3>3º Ciclo</h3>
+      <ul>
+        <li>Node.js y Express: Creación de APIs REST.</li>
+        <li>Proyecto destacado: Blog dinámico con MongoDB.</li>
+      </ul>
+    </div>
+    <div class="cycle">
+      <h3>4º Ciclo</h3>
+      <ul>
+        <li>Frontend avanzado: React.js y Bootstrap.</li>
+        <li>Proyecto destacado: Aplicación de tareas.</li>
+      </ul>
+    </div>
+    <div class="cycle">
+      <h3>5º Ciclo</h3>
+      <ul>
+        <li>Integración full-stack: Aplicaciones MERN.</li>
+        <li>Proyecto final: Plataforma de comercio electrónico.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Proyectos Destacados</h2>
+    <ul>
+      <li><a href="#">Blog dinámico con Node.js y MongoDB</a></li>
+      <li><a href="#">Aplicación de tareas en React.js</a></li>
+      <li><a href="#">Tienda online (MERN Stack)</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" placeholder="Tu nombre" required>
+      
+      <label for="email">Correo:</label>
+      <input type="email" id="email" placeholder="Tu correo" required>
+      
+      <label for="message">Mensaje:</label>
+      <textarea id="message" placeholder="Tu mensaje" rows="4" required></textarea>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Creado por Josue Rojas | Tecsup</p>
+  </footer>
+</body>
+</html>
