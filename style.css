@@ -1,177 +1,237 @@
 /* General */
 body {
-  margin: 0; /* Eliminar los márgenes por defecto */
-  font-family: 'Roboto', sans-serif; /* Definir la fuente para todo el cuerpo */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
     ),
-    url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Fondo con gradiente y una imagen de fondo */
-  background-size: cover; /* Asegura que la imagen de fondo cubra toda el área */
-  background-attachment: fixed; /* Fija la imagen de fondo */
-  background-position: center; /* Centra la imagen de fondo */
-  color: #fff; /* Color de texto blanco por defecto */
+    url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;  /* Se asegura que la imagen cubra toda la pantalla */
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff; /* Texto claro por defecto */
+  height: 100%; /* Asegúrate de usar altura automática */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Para alinear verticalmente */
+  justify-content: flex-start; /* No fijar al centro para evitar corte en secciones largas */
+  align-items: center;
+  text-align: center;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden; /* Para evitar corte horizontal si el contenido excede */
 }
 
-/* Enlaces generales */
-a {
-  text-decoration: none; /* Eliminar subrayado en los enlaces */
-  color: inherit; /* Heredar el color del texto del elemento padre */
+/* Scroll suave */
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave */
 }
 
-/* Barra de Navegación */
-nav {
-  position: fixed; /* Posiciona la barra de navegación de manera fija */
-  top: 0; /* Alinea la barra a la parte superior */
-  left: 0; /* Alinea la barra a la parte izquierda */
-  width: 100%; /* La barra ocupa todo el ancho de la pantalla */
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
-  color: white; /* Color del texto blanco */
-  display: flex; /* Usamos flexbox para distribuir los elementos */
-  justify-content: space-between; /* Espaciado entre logo y menú */
-  align-items: center; /* Alineación vertical de los elementos */
-  padding: 1rem 2rem; /* Espaciado dentro de la barra */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  z-index: 1000; /* Asegura que la barra esté encima de otros elementos */
-}
-
-nav .logo {
-  font-size: 1.5rem; /* Tamaño de fuente para el logo */
-  font-weight: bold; /* Fuente en negrita */
-  letter-spacing: 2px; /* Espaciado entre letras */
-}
-
-nav .menu a {
-  margin-left: 1rem; /* Espaciado entre los enlaces */
-  padding: 0.5rem 1rem; /* Espaciado dentro de los enlaces */
-  border-radius: 25px; /* Bordes redondeados en los enlaces */
-  background: rgba(255, 255, 255, 0.2); /* Fondo claro con opacidad */
-  color: white; /* Color blanco para los enlaces */
-  font-weight: bold; /* Negrita para los enlaces */
-  transition: all 0.3s ease; /* Transición suave al pasar el ratón */
-}
-
-nav .menu a:hover {
-  background: rgba(255, 255, 255, 0.4); /* Cambiar el fondo al pasar el ratón */
-}
-
-/* Main */
+/* Contenedor principal */
 main {
-  display: flex; /* Usamos flexbox para distribuir los elementos dentro de main */
-  flex-direction: column; /* Disposición en columna */
-  align-items: center; /* Centrar los elementos */
-  padding-top: 6rem; /* Espaciado en la parte superior (espacio para la barra de navegación) */
-  gap: 2rem; /* Espaciado entre secciones */
-}
-
-.hero {
-  text-align: center; /* Centrar el contenido del héroe */
-  padding: 2rem; /* Espaciado dentro de la sección hero */
-}
-
-.hero-img {
-  width: 100%; /* Hace que la imagen ocupe todo el ancho disponible */
-  max-height: 300px; /* Limita la altura máxima de la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
-  border-radius: 10px; /* Bordes redondeados en la imagen */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra en la imagen */
-}
-
-.hero-text h1 {
-  font-size: 2.5rem; /* Tamaño de fuente grande para el título */
-  margin: 1rem 0; /* Espaciado arriba y abajo del título */
-  color: #100d01; /* Color oscuro para el título */
-}
-
-.hero-text p {
-  font-size: 1.2rem; /* Tamaño de fuente para el párrafo */
-  color: #140303; /* Color oscuro para el párrafo */
-}
-
-.hero .btn {
-  display: inline-block; /* El botón se comporta como un bloque en línea */
-  margin-top: 1rem; /* Espaciado arriba del botón */
-  padding: 0.8rem 1.5rem; /* Espaciado dentro del botón */
-  background: #FFD700; /* Color dorado de fondo */
-  border-radius: 50px; /* Bordes redondeados del botón */
-  color: black; /* Color del texto negro */
-  font-size: 1rem; /* Tamaño de fuente del botón */
-  font-weight: bold; /* Negrita para el texto del botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en el botón */
-  transition: all 0.3s ease; /* Transición suave al pasar el ratón */
-}
-
-.hero .btn:hover {
-  background: #ffa500; /* Color de fondo al pasar el ratón */
-  transform: translateY(-3px); /* Efecto de elevar el botón */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  text-align: center;
+  gap: 2rem;
+  min-height: 100%; 
+  height: auto;
+  transition: transform 0.4s ease-in-out;
 }
 
 /* Secciones */
 section {
-  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
-  width: 90%; /* Ancho del 90% de la pantalla */
-  max-width: 800px; /* Ancho máximo de 800px */
-  padding: 2rem; /* Espaciado dentro de cada sección */
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra en cada sección */
-  transition: transform 0.3s ease; /* Transición suave para el efecto hover */
-  color: #333; /* Color de texto oscuro */
+  background: rgba(255, 255, 255, 0.95);  /* Fondo blanco por defecto */
+  width: 90%;
+  max-width: 900px;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, background 0.4s ease;
+  color: #333;  /* Texto oscuro por defecto */
+  margin: 1.5rem 0;
 }
 
 section:hover {
-  transform: translateY(-5px); /* Efecto de elevar la sección al pasar el ratón */
+  transform: translateY(-10px);
 }
 
 section h2 {
-  color: #222; /* Color del título de la sección */
-  font-size: 1.8rem; /* Tamaño de fuente del título */
-  margin-bottom: 1rem; /* Espaciado debajo del título */
+  color: #222;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+/* Ajustes generales de secciones */
+.section-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.section-content img {
+  width: 45%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  object-fit: cover;
 }
 
 section p {
-  font-size: 1rem; /* Tamaño de fuente del párrafo */
-  color: #555; /* Color del texto del párrafo */
+  font-size: 1.2rem;
+  color: #555;  /* Texto más claro */
+  flex: 1;
+  line-height: 1.6;
+  text-align: left;
 }
 
+/* Sección de enlaces */
 section a {
-  display: inline-block; /* El enlace se comporta como un bloque en línea */
-  margin-top: 1rem; /* Espaciado encima del enlace */
-  padding: 0.8rem 1.5rem; /* Espaciado dentro del enlace */
-  background: #4CAF50; /* Fondo verde para el enlace */
-  border-radius: 25px; /* Bordes redondeados del enlace */
-  color: white; /* Color blanco para el texto */
-  font-weight: bold; /* Negrita para el texto del enlace */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en el enlace */
-  transition: all 0.3s ease; /* Transición suave al pasar el ratón */
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: #4CAF50;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
 }
 
 section a:hover {
-  background: #357a38; /* Cambiar el fondo al pasar el ratón */
-  transform: translateY(-3px); /* Efecto de elevar el enlace */
+  background: #357a38;
+  transform: translateY(-8px);
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
-  nav {
-    position: fixed; /* Fija la barra de navegación en la parte inferior */
-    bottom: 0; /* Alinea la barra al fondo */
-    top: auto; /* Desactiva la alineación en la parte superior */
-    flex-direction: column; /* Cambia la dirección del menú a columna */
-    padding: 0.5rem; /* Espaciado reducido para dispositivos pequeños */
+/* Estilos de la barra de navegación */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+nav .menu a {
+  margin-left: 2rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav .menu a:hover {
+  color: #FFD700; /* Efecto hover en los enlaces de la navegación */
+}
+
+/* Botón de alternar tema */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #FFD700;
+}
+
+/* Media Queries: Ajustes en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .section-content {
+    flex-direction: row;
+    justify-content: center;
   }
 
-  nav .menu {
-    flex-direction: row; /* Los elementos del menú se distribuyen en fila */
-    justify-content: center; /* Centra los elementos del menú */
-    gap: 0.5rem; /* Espaciado entre los elementos del menú */
+  .section-content img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0;
+    object-fit: cover;
   }
 
   main {
-    padding-top: 2rem; /* Ajusta el espaciado superior */
+    padding: 2rem 0;
   }
 
-  section {
-    width: 100%; /* Las secciones ocupan todo el ancho de la pantalla */
-    padding: 1.5rem; /* Espaciado reducido en las secciones */
+  nav {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  nav .logo {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  nav .menu {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  nav .menu a {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tema oscuro */
+body.dark-theme {
+  background: rgba(0, 0, 0, 0.85);  /* Fondo oscuro */
+  color: #ccc;  /* Texto más claro en el tema oscuro */
+}
+
+body.dark-theme section {
+  background: rgba(0, 0, 0, 0.85);  /* Fondo oscuro en las secciones */
+  color: #ccc;  /* Texto más claro */
+}
+
+body.dark-theme section a {
+  background: #444;  /* Fondo de los enlaces oscuro */
+  color: #ddd;  /* Texto de los enlaces claro */
+}
+
+body.dark-theme section a:hover {
+  background: #666;  /* Color de fondo de los enlaces al pasar el mouse */
+}
+
+body.dark-theme nav {
+  background: rgba(0, 0, 0, 0.95);  /* Fondo de barra de navegación oscuro */
+}
+
+body.dark-theme nav .logo,
+body.dark-theme nav .menu a {
+  color: #ddd;  /* Texto claro en los enlaces y logo */
+}
+
+body.dark-theme nav .menu a:hover {
+  color: #FFD700;  /* Color de los enlaces al pasar el mouse */
 }
