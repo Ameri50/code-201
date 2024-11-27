@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Colores y CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Configuración básica */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background, linear-gradient(135deg, #f5f7fa, #c3cfe2));
+            color: var(--text-color, #333);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        h1, h2 {
+            font-weight: 700;
+        }
+        main {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #6c63ff;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background-color: #5847d6;
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Animación suave para la transición del color de fondo */
+        .result {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Diseño Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            main {
+                padding: 20px;
+                max-width: 90%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explora Colores en CSS</h1>
+        <p>Ingresa un color y descubre su representación en diferentes formatos.</p>
+    </header>
+
+    <main>
+        <div>
+            <h2>Descubre un Color</h2>
+            <input type="text" id="colorInput" placeholder="Ejemplo: red, #3498db, rgb(255,0,0)" aria-label="Ingrese un color" required>
+            <button onclick="showColor()">Mostrar Color</button>
+            <div id="colorResult"></div>
+        </div>
+    </main>
+
+    <script>
+        // Función para mostrar el color y sus representaciones
+        function showColor() {
+            const colorInput = document.getElementById("colorInput").value.trim();
+            const colorResult = document.getElementById("colorResult");
+
+            // Verifica si el color ingresado es válido
+            if (!isValidColor(colorInput)) {
+                colorResult.innerHTML = `<p style="color: red;">Por favor, ingresa un color válido.</p>`;
+                return;
+            }
+
+            const tempDiv = document.createElement('div');
+            tempDiv.style.color = colorInput;
+
+            // Intentar obtener los colores
+            document.body.appendChild(tempDiv);
+            const computedColor = getComputedStyle(tempDiv).color;
+            document.body.removeChild(tempDiv);
+
+            const rgb = computedColor.match(/\d+/g);
+            const r = parseInt(rgb[0]);
+            const g = parseInt(rgb[1]);
+            const b = parseInt(rgb[2]);
+            const hex = `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+            const hsl = rgbToHsl(r, g, b);
+
+            colorResult.innerHTML = `
+                <div class="result" style="background-color: ${colorInput};">
+                    ${colorInput}
+                </div>
+                <pre style="margin-top: 10px;">
+Código Hexadecimal: ${hex}
+Código RGB: rgb(${r}, ${g}, ${b})
+Código HSL: hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)
+
+/* CSS */
+.elemento {
+    background-color: ${colorInput};
+}
+                </pre>
+            `;
+        }
+
+        // Función para validar si el color es correcto (utiliza expresiones regulares)
+        function isValidColor(color) {
+            const testColor = new Option().style;
+            testColor.color = color;
+            return testColor.color !== '';
+        }
+
+        // Función para convertir RGB a HSL
+        function rgbToHsl(r, g, b) {
+            r /= 255;
+            g /= 255;
+            b /= 255;
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0; // gris
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h *= 60;
+            }
+            return { h: Math.round(h), s: Math.round(s * 100), l: Math.round(l * 100) };
+        }
+    </script>
+</body>
+</html>
+
