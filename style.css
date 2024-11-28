@@ -101,9 +101,9 @@ section a {
   display: inline-block;
   margin-top: 2rem;
   padding: 1rem 2.5rem;
-  background: #4CAF50;
+  background: #af4c4c;
   border-radius: 50px;
-  color: white;
+  color: rgb(245, 242, 242);
   font-weight: 700;
   font-size: 1.1rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
